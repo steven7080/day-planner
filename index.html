@@ -237,16 +237,27 @@
     .new-category-row { display:grid; grid-template-columns:minmax(0,1fr) 42px auto; gap:8px; align-items:center; }
     .new-category-row input[type="text"] { min-width:0; height:38px; padding:0 10px; border:1px solid #e5e9e3; border-radius:9px; font-size:11px; }
     .new-category-row input[type="color"] { width:38px; height:34px; padding:2px; border:1px solid #e5e9e3; border-radius:7px; background:#fff; cursor:pointer; }
-    .preferences-form { display:grid; gap:15px; padding:18px 21px 21px; }
-    .theme-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
-    .theme-option { display:flex; align-items:center; gap:8px; min-height:40px; padding:0 10px; border:1px solid #e5eae2; border-radius:9px; color:#69746b; font-size:11px; cursor:pointer; }
-    .theme-option:has(input:checked) { border-color:#b8cdb8; background:#f0f5ed; color:#4c674f; font-weight:700; }
-    .theme-option input { accent-color:var(--green); }
-    .genre-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; }
-    .genre-option { display:flex; align-items:center; gap:7px; color:#788278; font-size:10px; }
-    .genre-option input { accent-color:var(--green); }
-    .preferences-form select { width:100%; height:38px; padding:0 10px; border:1px solid #e5e9e3; border-radius:9px; background:#fff; color:#485349; font-size:11px; }
-    .preferences-note { margin:0; color:#8b958c; font-size:9px; line-height:1.5; }
+    .preferences-form { display:grid; gap:20px; padding:22px 26px 26px; }
+    .preferences-section { min-width:0; padding:0; margin:0; border:0; }
+    .preferences-section legend { margin:0 0 10px; padding:0; color:#626e64; font-size:13px; font-weight:740; line-height:1.45; }
+    .theme-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .theme-option { display:flex; align-items:center; min-width:0; min-height:48px; gap:10px; padding:0 12px; border:1px solid #e5eae2; border-radius:11px; background:#fff; color:#59665c; font-size:13px; line-height:1.35; cursor:pointer; transition:border-color .16s, background .16s, color .16s; }
+    .theme-option:hover, .genre-option:hover { border-color:#c5d5c3; background:#fbfdf9; }
+    .theme-option:has(input:checked) { border-color:#adc5ad; background:#eff5ec; color:#456249; font-weight:700; }
+    .theme-option input, .genre-option input { flex:0 0 18px; width:18px; height:18px; min-height:0; margin:0; padding:0; border:0; outline:none; box-shadow:none; accent-color:var(--green); }
+    .theme-option span, .genre-option span { min-width:0; }
+    .genre-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+    .genre-option { display:flex; align-items:center; min-width:0; min-height:42px; gap:9px; padding:0 11px; border:1px solid #e7ebe5; border-radius:10px; background:#fff; color:#647066; font-size:13px; line-height:1.35; cursor:pointer; transition:border-color .16s, background .16s, color .16s; }
+    .genre-option:has(input:checked) { border-color:#bfd1bd; background:#f4f8f1; color:#4c674f; font-weight:650; }
+    .preferences-form > .field { gap:8px; }
+    .preferences-form > .field > label { color:#626e64; font-size:13px; font-weight:740; }
+    .preferences-form select { width:100%; height:44px; padding:0 12px; border:1px solid #e2e8df; border-radius:10px; background:#fff; color:#3f4c42; font-size:14px; }
+    .preferences-note { margin:0; color:#7c897e; font-size:11px; line-height:1.65; }
+    #preferences-dialog { width:min(520px, calc(100% - 28px)); max-height:min(820px, calc(100vh - 28px)); max-height:min(820px, calc(100dvh - 28px)); overflow-y:auto; overscroll-behavior:contain; border-radius:20px; }
+    #preferences-dialog .dialog-head { padding:22px 26px 18px; }
+    #preferences-dialog .dialog-head h2 { font-size:19px; letter-spacing:-.45px; }
+    #preferences-dialog .dialog-actions { gap:10px; }
+    #preferences-dialog .dialog-actions .secondary-button, #preferences-dialog .dialog-actions .primary-button { min-height:44px; padding:0 17px; font-size:13px; }
     dialog { width: min(430px, calc(100% - 30px)); padding: 0; border: 1px solid #e7ebe4; border-radius: 18px; background: #fff; color: var(--ink); box-shadow: 0 24px 80px #18251c33; }
     dialog::backdrop { background: #24312870; backdrop-filter: blur(2px); }
     .dialog-head { display: flex; align-items: center; justify-content: space-between; padding: 19px 21px 14px; border-bottom: 1px solid #f0f2ee; }
@@ -255,9 +266,10 @@
     .time-help { margin: -7px 0 0; color: #8b968c; font-size: 9px; line-height: 1.45; }
     .field { display: grid; gap: 6px; }
     .field label, .field legend { color: #69746b; font-size: 10px; font-weight: 680; }
-    .field input, .field select, .field textarea { width: 100%; min-height: 39px; padding: 9px 11px; border: 1px solid #e5e9e3; border-radius: 9px; outline: none; background: #fff; color: #303831; font-size: 11px; }
+    .field input:not([type="checkbox"]):not([type="radio"]):not([type="color"]), .field select, .field textarea { width: 100%; min-height: 39px; padding: 9px 11px; border: 1px solid #e5e9e3; border-radius: 9px; outline: none; background: #fff; color: #303831; font-size: 11px; }
     .field textarea { min-height: 68px; resize: vertical; }
-    .field input:focus, .field select:focus, .field textarea:focus { border-color: #9ab6a0; box-shadow: 0 0 0 3px #4c806511; }
+    .field input:not([type="checkbox"]):not([type="radio"]):not([type="color"]):focus, .field select:focus, .field textarea:focus { border-color: #9ab6a0; box-shadow: 0 0 0 3px #4c806511; }
+    .preferences-form > .field > select { height:44px; min-height:44px; padding:0 12px; font-size:14px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; padding-top: 3px; }
     .secondary-button { min-height: 38px; padding: 0 13px; border: 1px solid #e5e9e3; border-radius: 9px; background: #fff; color: #748075; font-size: 11px; cursor: pointer; }
@@ -353,6 +365,12 @@
       .timeline-event { margin-right: 2px; margin-left: 2px; padding-right: 5px; padding-left: 6px; }
       .timeline-event-title { font-size: 9px; }
       .timeline-heading-copy p { max-width: 200px; line-height: 1.45; }
+      #preferences-dialog { width:calc(100% - 18px); max-height:calc(100vh - 18px); max-height:calc(100dvh - 18px); border-radius:17px; }
+      #preferences-dialog .dialog-head { padding:18px 18px 15px; }
+      #preferences-form { gap:18px; padding:18px 18px 20px; }
+      .theme-option { min-height:46px; padding:0 10px; font-size:12px; }
+      .genre-option { min-height:40px; padding:0 9px; font-size:12px; }
+      .preferences-section legend, .preferences-form > .field > label { font-size:12px; }
     }
     @media (max-width: 700px) {
       .weekly-dialog { width: calc(100% - 18px); max-height: calc(100vh - 18px); }
@@ -640,8 +658,8 @@
   <dialog id="preferences-dialog" aria-labelledby="preferences-title">
     <div class="dialog-head"><h2 id="preferences-title">테마와 음악 취향</h2><button class="icon-button" type="button" id="close-preferences" aria-label="닫기"><svg viewBox="0 0 24 24" fill="none"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
     <form class="preferences-form" id="preferences-form">
-      <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="field label">플래너 테마</legend><div class="theme-options"><label class="theme-option"><input type="radio" name="theme" value="nature">🌿 자연</label><label class="theme-option"><input type="radio" name="theme" value="ocean">🌊 바다</label><label class="theme-option"><input type="radio" name="theme" value="sky">☁️ 하늘</label><label class="theme-option"><input type="radio" name="theme" value="animal">🐾 동물</label></div></fieldset>
-      <fieldset class="field" style="border:0;padding:0;margin:0"><legend class="field label">좋아하는 음악 장르 (여러 개 선택)</legend><div class="genre-options" id="genre-options"></div></fieldset>
+      <fieldset class="preferences-section"><legend>플래너 테마</legend><div class="theme-options"><label class="theme-option"><input type="radio" name="theme" value="nature"><span>🌿 자연</span></label><label class="theme-option"><input type="radio" name="theme" value="ocean"><span>🌊 바다</span></label><label class="theme-option"><input type="radio" name="theme" value="sky"><span>☁️ 하늘</span></label><label class="theme-option"><input type="radio" name="theme" value="animal"><span>🐾 동물</span></label></div></fieldset>
+      <fieldset class="preferences-section"><legend>좋아하는 음악 장르 <span style="font-weight:500;color:#89948a">(여러 개 선택)</span></legend><div class="genre-options" id="genre-options"></div></fieldset>
       <div class="field"><label for="music-mood">오늘 듣고 싶은 분위기</label><select id="music-mood"><option value="any">모두 좋아요</option><option value="calm">차분한</option><option value="focus">집중되는</option><option value="bright">기분 전환</option><option value="energy">에너지 있는</option></select></div>
       <p class="preferences-note">취향 선택과 추천 기록은 이 브라우저에만 저장됩니다. 스트리밍 계정이나 청취 기록에는 연결되지 않아요.</p>
       <div class="dialog-actions"><button class="secondary-button" type="button" id="cancel-preferences">취소</button><button class="primary-button" type="submit">저장하기</button></div>
@@ -1168,7 +1186,7 @@
         MUSIC_GENRES.forEach(function (genre) {
           var label = el("label", "genre-option");
           var input = document.createElement("input"); input.type = "checkbox"; input.name = "genre"; input.value = genre; input.checked = preferences.genres.indexOf(genre) >= 0;
-          label.append(input, document.createTextNode(genre)); container.appendChild(label);
+          label.append(input, el("span", "genre-label", genre)); container.appendChild(label);
         });
       }
       function openPreferences() {
